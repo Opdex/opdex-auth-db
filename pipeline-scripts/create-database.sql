@@ -14,11 +14,10 @@ CREATE PROCEDURE CreateDatabase ()
         ) ENGINE = INNODB;
 
         CREATE TABLE IF NOT EXISTS auth_access_code(
-            Id                 BIGINT UNSIGNED AUTO_INCREMENT,
             AccessCode         VARCHAR(50) NOT NULL,
             Signer             VARCHAR(50) NOT NULL,
             Expiry             DATETIME NOT NULL,
-            PRIMARY KEY (ConnectionId)
+            PRIMARY KEY (AccessCode)
         ) ENGINE = INNODB;
     END;
 //
