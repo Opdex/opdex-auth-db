@@ -20,6 +20,6 @@ jobs:
               SqlUsername: 'opdex@sql-opdex-auth-${{ parameters.environment }}'
               SqlPassword: '$(sqlpassword)'
               TaskNameSelector: 'SqlTaskFile'
-              DatabaseName: 'platform'
+              DatabaseName: 'auth'
               SqlFile: $(Pipeline.Workspace)/database/create-database.sql
               IpDetectionMethod: 'AutoDetect'
