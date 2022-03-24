@@ -1,0 +1,25 @@
+parameters:
+- name: environment
+  type: string
+
+jobs:
+  - deployment: ${{ parameters.environment }}
+    displayName: 'Deploy Resources'
+    variables:
+      - group: ${{ parameters.environment }}-db # points to variable group in Azure DevOps
+    environment: ${{ parameters.environment }} # points to environments in Azure DevOps
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          # - checkout: self # Check if we need to perform a checkout, we download the artifact.
+          - task: AzureMysqlDeployment@1
+            inputs:
+              azureSubscription: $(azureSubscription) 
+              ServerName: 'sql-opdex-auth-${{ parameters.environment }}.mysql.database.azure.com'
+              SqlUsername: 'opdex@sql-opdex-auth-${{ parameters.environment }}'
+              SqlPassword: '$(sqlpassword)'
+              TaskNameSelector: 'SqlTaskFile'
+              DatabaseName: 'platform'
+              SqlFile: $(Pipeline.Workspace)/database/create-database.sql
+              IpDetectionMethod: 'AutoDetect'
