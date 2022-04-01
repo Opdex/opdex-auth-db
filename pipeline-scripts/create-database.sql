@@ -26,7 +26,7 @@ CREATE PROCEDURE CreateDatabase ()
                 REFERENCES code_challenge_method (Id)
         ) ENGINE = INNODB;
 
-        CREATE TABLE auth_access_code(
+        CREATE TABLE IF NOT EXISTS auth_access_code(
             AccessCode         BINARY(16) NOT NULL,
             Signer             VARCHAR(50) NOT NULL,
             Stamp              BINARY(16) NOT NULL,
