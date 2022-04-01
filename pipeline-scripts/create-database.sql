@@ -38,15 +38,15 @@ CREATE PROCEDURE CreateDatabase ()
                 FOREIGN KEY (Stamp)
                 REFERENCES auth_session (Id) ON DELETE CASCADE
         ) ENGINE = INNODB;
-    END;
 
-    -- --------
-    -- --------
-    -- Populate Lookup Type Tables
-    -- -------
-    -- -------
-    INSERT INTO code_challenge_method(Name)
-        VALUES ('Plain'), ('S256');
+        -- --------
+        -- --------
+        -- Populate Lookup Type Tables
+        -- -------
+        -- -------
+        INSERT INTO code_challenge_method(Name)
+            VALUES ('Plain'), ('S256');
+    END;
 //
 
 CALL CreateDatabase();
