@@ -45,7 +45,7 @@ CREATE PROCEDURE CreateDatabase ()
         -- Populate Lookup Type Tables
         -- -------
         -- -------
-        INSERT INTO code_challenge_method(Name)
+        INSERT IGNORE INTO code_challenge_method(Name)
             VALUES ('Plain'), ('S256');
     END;
 //
