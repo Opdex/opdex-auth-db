@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS auth_success(
     Address VARCHAR(50) NOT NULL,
     Expiry DATETIME NOT NULL,
     PRIMARY KEY (Id),
-    CONSTRAINT auth_success_address_uq UNIQUE (Address)
+    CONSTRAINT auth_success_audience_address_uq UNIQUE (Audience, Address)
 ) ENGINE = INNODB;
 
 CREATE TABLE IF NOT EXISTS token_log(
