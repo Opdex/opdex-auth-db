@@ -15,9 +15,9 @@ CREATE PROCEDURE CreateDatabase ()
 
         CREATE TABLE IF NOT EXISTS auth_session(
             Id                      BINARY(16) NOT NULL,
-            Audience                VARCHAR(255) NOT NULL,
-            CodeChallenge           VARCHAR(255) NOT NULL,
-            CodeChallengeMethod     SMALLINT UNSIGNED NOT NULL,
+            Audience                VARCHAR(255) NULL,
+            CodeChallenge           VARCHAR(255) NULL,
+            CodeChallengeMethod     SMALLINT UNSIGNED NULL,
             ConnectionId            VARCHAR(255) NULL,
             PRIMARY KEY (Id),
             UNIQUE auth_session_code_challenge_uq (CodeChallenge),
