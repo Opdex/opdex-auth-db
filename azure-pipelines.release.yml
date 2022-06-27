@@ -16,8 +16,8 @@ jobs:
           - task: AzureMysqlDeployment@1
             inputs:
               azureSubscription: $(azureSubscription) 
-              ServerName: 'sql-opdex-auth-${{ parameters.environment }}.mysql.database.azure.com'
-              SqlUsername: 'opdex@sql-opdex-auth-${{ parameters.environment }}'
+              ServerName: 'sql-opdex-${{ parameters.environment }}.mysql.database.azure.com'
+              SqlUsername: 'opdex@sql-opdex-${{ parameters.environment }}'
               SqlPassword: '$(sqlpassword)'
               TaskNameSelector: 'SqlTaskFile'
               DatabaseName: 'auth'
