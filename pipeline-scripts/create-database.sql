@@ -1,4 +1,4 @@
--- Creates the database for use with Opdex Platform API
+-- Creates the database for use with Opdex Auth API
 DELIMITER //
 
 DROP PROCEDURE IF EXISTS CreateDatabase;
